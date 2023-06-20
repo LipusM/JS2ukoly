@@ -1,0 +1,16 @@
+#app{
+    text-align: center;
+    background-color: lightblue;
+    width: max-content;
+    border: solid 1px lightgray;
+
+    border-radius: 5px;
+    margin: auto;
+    padding: 15px;
+}
+
+#quote{
+    background-image: url('../img/quote.svg');
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}

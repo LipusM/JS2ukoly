@@ -1,0 +1,46 @@
+main{
+    $darkBlue: #2c3345;
+    $darkGold: #886f39;
+
+
+    #wineDegustation{
+        display: flex;
+        flex-direction: column;
+        /* gap: 5px; */
+
+        .wineIntro{
+            display: flex;
+
+            .wineImage, .wineText{
+                flex: 1;
+                height: 75svh;
+                margin: auto;
+            }
+
+            .wineImage{
+                .wine{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }  
+            
+            .wineText{
+                color: $darkGold;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0px 20px 0px 20px;
+
+                h2{
+                    text-align: center;
+                }
+                p{
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+}

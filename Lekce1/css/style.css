@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.spravne {
+  background-color: #00dd00;
+}
+
+.spatne {
+  background-color: #ff8686;
+}
+
+.spravne, .spatne {
+  margin: 0px 2px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#cislaRC {
+  display: flex;
+}

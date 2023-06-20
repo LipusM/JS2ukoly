@@ -1,0 +1,148 @@
+import { ListItem } from '../ListItem/index.js';
+
+export const ShopList = (props) => {
+  const { day, dayResult } = props;
+
+  let dayName = 'Načítám...';
+  if (dayResult !== 'loading') {
+    dayName = dayResult.dayName;
+  }
+
+  const element = document.createElement('div');
+  element.classList.add('shoplist');
+  element.innerHTML = `
+    <div class="shoplist__head">
+      <h2 class="shoplist__day">${dayName}</h2>
+
+      <div class="shoplist__toolbar">
+        <button class="reset-btn">obnovit</button>
+        <button class="clear-btn">vymazat</button>
+      </div>
+
+    </div>
+    <form class="shoplist__new">
+      <div class="form-fields">  
+        <input class="field-input product-input" type="text" />
+        <input class="field-input amount-input" type="text" />
+        <input class="field-input unit-input" type="text" />
+      </div>
+      <div class="form-controls">
+        <button class="btn-add">Přidat</button>
+      </div>
+    </form>
+    <div class="shoplist__items"></div>
+  `
+
+  if (dayResult === 'loading') {
+    fetch(`https://nakupy.kodim.app/api/me/week/${day}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        element.replaceWith(
+          ShopList({
+            day: day,
+            dayResult: data.result,
+          })
+        )
+      })
+    return element
+  } 
+
+
+//Fce na přidávání položek do seznamu a odesílání daných položek na server
+const handleSubmit = (event) => {
+  event.preventDefault()
+
+  const productInput = element.querySelector('.product-input')
+  const amountInput = element.querySelector('.amount-input')
+  const unitInput = element.querySelector('.unit-input')
+
+  fetch(`https://nakupy.kodim.app/api/me/week/${day}/items`,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    body: JSON.stringify({
+      product: productInput.value,
+      amount: Number(amountInput.value),
+      unit: unitInput.value,
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+
+    if(data.status === 'success'){
+      element.replaceWith(ShopList({ day: day, dayResult: data.result,})) 
+    }
+    else{
+      console.log('CHYBA! CHYBA! CHYBA!')
+      console.log(...data.errors.map(er => er.detail))
+    }
+  })
+
+}
+
+element.querySelector('.shoplist__new')
+.addEventListener('submit', handleSubmit)
+
+
+//Fce pro obnovu seznamu
+const handleReset = () => {
+  fetch(`https://nakupy.kodim.app/api/me/week/${day}/actions`,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    body: JSON.stringify({
+      type: 'reset',
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    element.replaceWith(ShopList({day: day, dayResult: data.result}))
+  })
+
+}
+
+element.querySelector('.reset-btn')
+.addEventListener('click', handleReset)
+
+
+//Fce umožňující odstranit najednou všechny položky seznamu
+const handleClear = () => {
+  fetch(`https://nakupy.kodim.app/api/me/week/${day}/actions`,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    },
+    body: JSON.stringify({
+      type: 'clear',
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    element.replaceWith(ShopList({day: day, dayResult: data.result}))
+  })
+
+}
+
+element.querySelector('.clear-btn')
+.addEventListener('click', handleClear)
+
+
+
+
+
+const itemsElement = element.querySelector('.shoplist__items');
+itemsElement.append(...dayResult.items.map((item) => ListItem(item)));
+
+return element
+}

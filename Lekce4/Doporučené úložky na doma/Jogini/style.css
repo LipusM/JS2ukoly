@@ -1,0 +1,51 @@
+/* Používáme intuitivní výpočet rozměrů prvků. */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  color: #777;
+}
+
+.container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+
+
+/*Intro*/
+/* .intro {
+  width: 50%;
+}
+
+.intro h2 {
+  font-weight: 300;
+  font-size: 3rem;
+  color: black;
+} */
+/*Intro*/
+
+/*Pose*/
+/* .pose {
+  padding: 2rem;
+  width: 50%;
+  height: auto;
+  align-self: flex-start;
+} */
+/*Pose*/
+
+p {
+  line-height: 150%;
+}

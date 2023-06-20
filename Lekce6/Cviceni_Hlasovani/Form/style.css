@@ -1,0 +1,41 @@
+.form{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  
+    /* width: 50%; */
+    margin: auto;
+  }
+
+#senderName:focus, #senderChoice:focus{
+    box-shadow: 0px 0px 0px 1px blue;
+}
+
+#senderChoice {
+    margin-left: 15px;
+    width: 50%;
+}
+
+.inputWrong{
+    border: solid 1px red;
+}
+
+#wrongMessage{
+    width: max-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
+}
+
+#choices{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+button{
+    margin-left: -100px;
+}
+

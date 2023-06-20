@@ -1,0 +1,14 @@
+.element{
+    margin-bottom: 15px;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    width: max-content;
+
+    background-color: #0084ff;
+    color: white;
+    padding: 10px;
+}
+
+.element #name, #date {
+    color: #242526;
+}

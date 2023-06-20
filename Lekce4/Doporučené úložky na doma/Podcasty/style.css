@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap&subset=latin-ext');
+
+/* Používáme intuitivní výpočet rozměrů prvků. */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* .container {
+  max-width: 20rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+body {
+  color: #666;
+}

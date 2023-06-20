@@ -1,0 +1,30 @@
+#carouselExampleIndicators{
+    /* z-index: -1; */
+
+    button{
+        img{
+            height: 50px;
+        }
+    }
+
+    .carousel-inner{
+        .carousel-item{
+            .actualWine{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+
+                width: 55%;
+                margin: auto;
+
+                color: #886845;
+                text-align: justify;
+
+                img{
+                    height: 75svh;
+                }
+            }
+        }
+    }
+}

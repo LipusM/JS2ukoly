@@ -1,0 +1,12 @@
+#konkretniRecepty{
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.myRecipes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

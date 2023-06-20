@@ -1,0 +1,5 @@
+líbí se mi žes použil druhý parametr ve funkci renderEmail (kterou bych ovšem přejmenovala na renderEmails nebo renderSection), méně se mi už líbí žes zvolil za možnosti řetězce "true" a "false", javascript má speciální typ boolean který pracuje s hodnotami true/false a nedává smysl místo nich použít řetězce, řetězce použít ale samozřejmě můžeš a dokonce si myslím je to v tomto případě lepší volba, ale pro tento případ se hodí použít třeba "read" a "unread"... 
+
+pak je super žes zvolil jednu funkci tedy, uvnitř by se to dalo ale vylepšit, když se podíváš hrozně tam zase opakuješ celé html, přitom se liší jen v ikoně, a tu si můžeš vyřešit hned na začátku do nějaké té proměnné emailIcon a poslat tam pak tedy tuto proměnnou, a nemusíš celý kod vetvit jak to máš ty :) 
+
+pak se to tedy ještě liší v elementu který si chytáš - když si vhodně zvolíš co do funkce pošleš za ten druhý parametr ("read"/"unred" nebo "inboxUnread" jak to teda máš ty) tak si mužeš hned dynamicky chytit ten element a zase to stačí použít jen jednou :) funkce se tedy zpřehlední

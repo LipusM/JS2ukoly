@@ -1,0 +1,47 @@
+main {
+
+    #introHomeP {
+        background-image: url("./img/homeImage.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+
+        height: 100svh;
+
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        .introText {
+            height: max-content;
+
+            h1 {
+                width: max-content;
+            }
+
+            .verticalText {
+                text-align: justify;
+                width: 450px;
+                font-weight: 600;
+                height: max-content;
+                padding-right: 20px;
+            }
+
+            &:nth-of-type(odd) {
+                border-left: solid 1px white;
+                padding-left: 20px;
+            }
+
+            &:nth-of-type(even) {
+                border-right: solid 1px white;
+                padding-right: 20px;
+            }
+        }
+    }
+}

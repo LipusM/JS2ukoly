@@ -1,0 +1,61 @@
+form{
+    $darkBlue: #2c3345;
+    $darkGold: #886f39;
+
+    width: 50%;
+    color: $darkGold;
+
+    textarea{
+        height: 150px;
+    }
+
+    #sendM{
+        display: flex;
+        justify-content: center;
+
+        button{
+            background-color: white;
+            color: $darkGold;
+            border: $darkGold solid 1px;
+            transition: ease-in-out 500ms;
+
+            &:hover{
+                transform: scaleX(1);
+                background-color: $darkGold;
+                color: white;
+            }
+
+            &:focus{
+                box-shadow: 0px 0px !important;
+            }
+        }
+    }
+
+    input, textarea{
+        border: none !important;
+        border-bottom: solid 2px $darkGold !important;
+        border-radius: 0px !important;
+
+        &:focus{
+            border: solid 1px $darkGold !important;
+            box-shadow: 0px 0px !important;
+        }
+    }
+
+/*     label{
+        color: $darkGold;
+    } */
+
+    .wrongInput{
+        border-bottom: solid 2px red !important;
+    }
+
+    .stopLabel{
+        color: red;
+    }
+
+    #thankMessage{
+        text-align: center;
+        color: $darkGold;
+    }
+}

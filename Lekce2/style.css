@@ -1,0 +1,31 @@
+/* Používáme intuitivní výpočet rozměrů prvků. */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+.posunuti{
+  margin: 10px 0px;
+}
+
+.container {
+  max-width: 20rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.male{
+  color: blue;
+}
+
+
+.female{
+  color: pink;
+}
+
+.nonbinary{
+  color: green;
+}

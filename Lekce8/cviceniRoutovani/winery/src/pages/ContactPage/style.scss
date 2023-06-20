@@ -1,0 +1,34 @@
+main{
+    #contactInfo{
+        display: flex;
+        height: 100svh;
+        margin: auto;
+        gap: 10px;
+        
+        #map, #contactForm{
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #map{
+            display: flex;
+            margin: auto;
+
+            width: 100%;
+            height: 75%;
+       
+            margin-left: 20px;
+            iframe{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        #contactForm{
+            display: flex;
+
+            margin-right: 20px;
+        }
+    }
+}
