@@ -34,27 +34,27 @@ export const Order = (prop) => {
         })
         .then(response => response.json())
         .then(data => {
-            data.result.filter(specificOrder => {
-
-                const {image, name, ordered} = specificOrder
-
-                if(ordered){
-                    const createdOrder = OrderItem({
-                        name: name,
-                        image: image
-                    })
-
-                    listOrders.append(createdOrder)
-                    c("První blok!")
+           const orderedDrinks =  data.result.filter(specificOrder => {
+                if(specificOrder.ordered){
+                    return specificOrder
                 }
-            })
+            }
+        )
 
-            c("Druhý blok!")
-             if(listOrders.textContent === ''){
-                element.querySelector(".empty-order").classList.remove("empty-order--hide")
-              }
-
-        })
+            element.replaceWith(Order({
+                items: orderedDrinks,
+            }
+        ))
+    })
+}
+    else if(items.length === 0){
+        element.querySelector(".empty-order").classList.remove("empty-order--hide")
+    }
+    else{
+        listOrders.append(...items.map(
+            item => 
+                OrderItem(item)
+        ))
     }
 
     return element
