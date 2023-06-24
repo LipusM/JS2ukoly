@@ -9,10 +9,10 @@ const { pathname } = window.location
 
 const insert = document.querySelector("#app")
 
-if(pathname === BASE_PATH + "/"){
+if(pathname === "/"){
     insert.append(HomePage())
 }
-else if(pathname === BASE_PATH + "/objednavka"){
+else if(pathname === "/objednavka"){
     insert.append(OrderPage())
 }
 
