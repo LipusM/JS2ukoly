@@ -4,7 +4,6 @@ import './style.css'
 
 import { Header } from '../../components/Header/index.js'
 import { Footer } from '../../components/Footer/index.js'
-
 import { Order } from './components/Order/index.js'
 
 export const OrderPage = () => {
@@ -14,10 +13,7 @@ export const OrderPage = () => {
 
     main.append(Header({showMenu: false}))
     main.innerHTML += `
-    <main class="order">
-
-    </main>
-    `
+    <main class="order"></main>`
 
     main
     .append(Order({

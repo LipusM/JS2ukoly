@@ -34,17 +34,28 @@ export const Order = (prop) => {
         })
         .then(response => response.json())
         .then(data => {
-           const orderedDrinks =  data.result.filter(specificOrder => {
+/*            const orderedDrinks =  data.result.filter(specificOrder => {
                 if(specificOrder.ordered){
                     return specificOrder
                 }
             }
-        )
-
-            element.replaceWith(Order({
+        ) */
+    
+/*             element.replaceWith(Order({
                 items: orderedDrinks,
             }
-        ))
+        )) */
+
+            element.replaceWith(
+                Order({
+                items: data.result.filter(specificOrder => {
+                    if(specificOrder.ordered){
+                        return specificOrder
+                    }
+                })
+            })
+        )
+
     })
 }
     else if(items.length === 0){
@@ -55,30 +66,14 @@ export const Order = (prop) => {
             item => 
                 OrderItem(item)
         ))
+
+        c("ahoj")
     }
 
+/*     listOrders.append(...items.map(
+        item => 
+            OrderItem(item)
+    ))
+ */
     return element
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

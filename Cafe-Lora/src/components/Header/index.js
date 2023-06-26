@@ -27,7 +27,6 @@ export const Header = (prop) => {
         const navElm = element.querySelector(".rollout-nav")
 
         const mobMnShowClose = () => {
-    
             navElm.classList.toggle("nav-closed")
         }
         const btnMenuElm = element.querySelector(".nav-btn")
@@ -35,7 +34,6 @@ export const Header = (prop) => {
     
     
         const rollMobMnClose = () => {
-    
             navElm.classList.add("nav-closed")
         }
         navElm.addEventListener("click", rollMobMnClose)
