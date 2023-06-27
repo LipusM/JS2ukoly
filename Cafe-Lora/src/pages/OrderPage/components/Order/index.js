@@ -55,7 +55,7 @@ export const Order = (prop) => {
                 })
             })
         )
-
+        c(element)
     })
 }
     else if(items.length === 0){
@@ -66,14 +66,7 @@ export const Order = (prop) => {
             item => 
                 OrderItem(item)
         ))
-
-        c("ahoj")
     }
 
-/*     listOrders.append(...items.map(
-        item => 
-            OrderItem(item)
-    ))
- */
     return element
 }
