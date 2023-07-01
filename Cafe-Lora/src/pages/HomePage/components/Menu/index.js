@@ -12,13 +12,14 @@ export const Menu = (prop) => {
     element.classList.add("menu")
     element.setAttribute("id", "menu")
 
-    let introText = "Načítám menu..."
+    let introText1 = "Načítám menu..."
+    let introText2 = "Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu"
 
     element.innerHTML = `
     <div class="container">
         <h2>Naše nabídka</h2>
         <p class="menu-intro">
-        ${introText}
+        ${introText1}
         </p>
         <div class="drinks-list"></div>
         
@@ -48,22 +49,19 @@ export const Menu = (prop) => {
       .then(response => response.json())
       .then(data => {
 
-
-        data.result.map(drinks => {
-
+          const allDrinks = data.result.map(drinks => {
           const {id, name, ordered, image, layers} = drinks
-          
-          const oneDrink = Drink({
+          return Drink({
             id: id,
             name: name,
             ordered: ordered,
             image: image,
             layers: layers,
           })
-
-          element.querySelector(".drinks-list").append(oneDrink)
         })
-        element.querySelector(".menu-intro").textContent = "Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu"
+       
+        element.querySelector(".drinks-list").append(...allDrinks)
+        element.querySelector(".menu-intro").textContent = introText2
       })
     }
     
