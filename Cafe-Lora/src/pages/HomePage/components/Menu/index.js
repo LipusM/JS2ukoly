@@ -12,13 +12,14 @@ export const Menu = (prop) => {
     element.classList.add("menu")
     element.setAttribute("id", "menu")
 
+    let introText = "Načítám menu..."
+
     element.innerHTML = `
     <div class="container">
         <h2>Naše nabídka</h2>
         <p class="menu-intro">
-        Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu
+        ${introText}
         </p>
-
         <div class="drinks-list"></div>
         
     </div>
@@ -32,11 +33,11 @@ export const Menu = (prop) => {
     <a href="/objednavka">Detail objednávky</a>
     `
     element.querySelector(".container").append(orderDetail)
-
+    
 
 
     if(drinks === "loading"){
-
+      
       fetch(`https://cafelora.kodim.app/api/me/drinks`,{
         method: 'GET',
         headers:{
@@ -46,6 +47,8 @@ export const Menu = (prop) => {
       })
       .then(response => response.json())
       .then(data => {
+
+
         data.result.map(drinks => {
 
           const {id, name, ordered, image, layers} = drinks
@@ -60,9 +63,11 @@ export const Menu = (prop) => {
 
           element.querySelector(".drinks-list").append(oneDrink)
         })
+        element.querySelector(".menu-intro").textContent = "Vyberte si z našeho interaktivního menu a nemusíte čekat na obsluhu"
       })
-
     }
-
+    
     return element
 }
+
+
