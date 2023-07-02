@@ -50,7 +50,6 @@ export const Menu = (prop) => {
       .then(data => {
 
           const allDrinks = data.result.map(drinks => 
-          
            Drink({
             id: drinks.id,
             name: drinks.name,

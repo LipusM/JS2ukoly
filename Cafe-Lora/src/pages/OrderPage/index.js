@@ -15,12 +15,7 @@ export const OrderPage = () => {
     main.innerHTML += `
     <main class="order"></main>`
 
-    main
-    .append(Order({
-      items: "loading",
-    }))
-
-    main.append(Footer())
+    main.append(Order({items: "loading"}), Footer())
 
     return main
 }

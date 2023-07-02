@@ -7,6 +7,8 @@ import { OrderPage } from './pages/OrderPage/index.js'
 
 const { pathname } = window.location
 
+const cesta = location.pathname
+
 const insert = document.querySelector("#app")
 
 if(pathname === "/"){
