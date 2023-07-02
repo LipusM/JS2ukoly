@@ -49,16 +49,16 @@ export const Menu = (prop) => {
       .then(response => response.json())
       .then(data => {
 
-          const allDrinks = data.result.map(drinks => {
-          const {id, name, ordered, image, layers} = drinks
-          return Drink({
-            id: id,
-            name: name,
-            ordered: ordered,
-            image: image,
-            layers: layers,
+          const allDrinks = data.result.map(drinks => 
+          
+           Drink({
+            id: drinks.id,
+            name: drinks.name,
+            ordered: drinks.ordered,
+            image: drinks.image,
+            layers: drinks.layers,
           })
-        })
+        )
        
         element.querySelector(".drinks-list").append(...allDrinks)
         element.querySelector(".menu-intro").textContent = introText2
